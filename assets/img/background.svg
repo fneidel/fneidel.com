@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  width="1084" height="322" viewBox="0 0 1084 322"
+  preserveAspectRatio="xMidYMid slice"
+  style="display:block;background:transparent;">
+
+  <defs>
+    <linearGradient id="petalPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5" stop-opacity="0.95"/>
+      <stop offset="46%" stop-color="#E0CEFE" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#B857FD" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <linearGradient id="petalPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8F1FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7453AD" stop-opacity="0.74"/>
+    </linearGradient>
+
+    <linearGradient id="petalCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EFFFFC" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#13D7C1" stop-opacity="0.46"/>
+    </linearGradient>
+
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="1.05"/>
+    </filter>
+
+    <filter id="nearBlur">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+
+    <path id="petal" d="M0,-15 C11,-12 16,-2 11,8 C6,19 -9,19 -14,6 C-18,-5 -10,-13 0,-15 Z"/>
+    <path id="smallPetal" d="M0,-9 C7,-8 11,-1 8,6 C4,13 -6,13 -10,4 C-13,-4 -7,-9 0,-9 Z"/>
+  </defs>
+
+  <!-- Transparent background. No wind lines. Only petals. -->
+
+  <!-- Top layer -->
+  <g opacity="0.58" filter="url(#softBlur)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="-520 160" to="1340 -210" dur="24s" repeatCount="indefinite"/>
+      <use href="#smallPetal" transform="translate(20 24) scale(.34) rotate(20)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(92 78) scale(.26) rotate(-35)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(178 30) scale(.31) rotate(58)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(260 104) scale(.25) rotate(12)" fill="url(#petalCyan)"/>
+      <use href="#smallPetal" transform="translate(348 56) scale(.29) rotate(-18)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(444 122) scale(.22) rotate(42)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(538 78) scale(.25) rotate(-48)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(642 142) scale(.21) rotate(72)" fill="url(#petalCyan)"/>
+      <use href="#smallPetal" transform="translate(750 88) scale(.28) rotate(18)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(860 158) scale(.22) rotate(-22)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(980 108) scale(.24) rotate(44)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(1110 180) scale(.20) rotate(-10)" fill="url(#petalCyan)"/>
+    </g>
+  </g>
+
+  <!-- Upper-middle layer -->
+  <g opacity="0.72">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="-620 240" to="1380 -220" dur="18s" repeatCount="indefinite"/>
+      <use href="#petal" transform="translate(28 68) scale(.48) rotate(-20)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(126 36) scale(.36) rotate(18)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(226 112) scale(.44) rotate(38)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(330 56) scale(.39) rotate(-12)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(438 132) scale(.46) rotate(-18)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(548 82) scale(.34) rotate(60)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(662 158) scale(.42) rotate(52)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(782 105) scale(.36) rotate(-28)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(910 178) scale(.40) rotate(-30)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(1046 122) scale(.34) rotate(18)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(1180 204) scale(.38) rotate(14)" fill="url(#petalPink)"/>
+    </g>
+  </g>
+
+  <!-- Center dense layer -->
+  <g opacity="0.82">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="-560 350" to="1380 -180" dur="14s" repeatCount="indefinite"/>
+      <use href="#petal" transform="translate(20 165) scale(.64) rotate(20)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(88 220) scale(.42) rotate(-10)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(155 145) scale(.50) rotate(-40)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(238 260) scale(.54) rotate(60)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(322 178) scale(.39) rotate(-8)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(418 238) scale(.45) rotate(-18)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(512 155) scale(.52) rotate(35)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(610 210) scale(.38) rotate(-24)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(712 132) scale(.43) rotate(46)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(818 186) scale(.40) rotate(-16)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(930 115) scale(.45) rotate(70)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(1046 170) scale(.42) rotate(-36)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(1160 92) scale(.35) rotate(20)" fill="url(#petalCyan)"/>
+    </g>
+  </g>
+
+  <!-- Lower layer -->
+  <g opacity="0.66" filter="url(#softBlur)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="-690 460" to="1320 -145" dur="21s" repeatCount="indefinite"/>
+      <use href="#smallPetal" transform="translate(30 300) scale(.42) rotate(-8)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(115 246) scale(.30) rotate(40)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(210 315) scale(.37) rotate(-30)" fill="url(#petalCyan)"/>
+      <use href="#smallPetal" transform="translate(305 254) scale(.29) rotate(70)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(410 330) scale(.36) rotate(18)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(530 268) scale(.28) rotate(-18)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(650 342) scale(.34) rotate(55)" fill="url(#petalCyan)"/>
+      <use href="#smallPetal" transform="translate(775 280) scale(.29) rotate(-42)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(905 356) scale(.35) rotate(26)" fill="url(#petalPurple)"/>
+      <use href="#smallPetal" transform="translate(1040 292) scale(.30) rotate(-12)" fill="url(#petalPink)"/>
+      <use href="#smallPetal" transform="translate(1170 365) scale(.32) rotate(52)" fill="url(#petalCyan)"/>
+    </g>
+  </g>
+
+  <!-- Foreground depth layer -->
+  <g opacity="0.38" filter="url(#nearBlur)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        from="-760 430" to="1460 -250" dur="10s" repeatCount="indefinite"/>
+      <use href="#petal" transform="translate(20 90) scale(1.05) rotate(20)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(145 290) scale(1.28) rotate(-10)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(315 65) scale(.90) rotate(-40)" fill="url(#petalPurple)"/>
+      <use href="#petal" transform="translate(500 230) scale(1.10) rotate(60)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(680 112) scale(.82) rotate(-8)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(860 282) scale(1.02) rotate(-18)" fill="url(#petalCyan)"/>
+      <use href="#petal" transform="translate(1070 150) scale(.92) rotate(35)" fill="url(#petalPink)"/>
+      <use href="#petal" transform="translate(1240 300) scale(1.16) rotate(-28)" fill="url(#petalPurple)"/>
+    </g>
+  </g>
+
+</svg>
