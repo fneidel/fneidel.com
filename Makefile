@@ -17,9 +17,9 @@ themes/blowfish/node_modules:
 	npm install --prefix ./themes/blowfish
 
 assets/css/compiled/main.css: themes/blowfish/node_modules
-	~/.local/bin/tailwindcss -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css ---minify
+	./themes/blowfish/node_modules/.bin/tailwindcss -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css ---minify
 
-build: assets/css/compiled/main.css
+build:
 	HUGO_ENV=production hugo --gc --minify
 
 test: assets/css/compiled/main.css
@@ -39,24 +39,19 @@ install-hugo:
 		CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@v$$required_version; \
 	fi
 
-copy:
-	rm -rf public/de/de public/de/en public/en/de public/en/en
-	cp -r public/en/* ~/html/jneidel.com
-	cp -r public/de/* ~/html/jneidel.de
-
 pull:
 	git fetch origin master
 	git reset --hard origin/master
 	git submodule update
 
-sync-generated-md:
-	rsync -avrp --delete content u:git/web
+sync-tailwind: assets/css/compiled/main.css
+	rsync -avrp --delete assets/css/compiled/main.css uber:html/assets/css/compiled/main.css
 
 reset:
 	git reset --hard
 	git clean -df
 
-deploy: reset build copy
-
 publish: # run via a custom git publish
-	ssh uber 'zsh -lc "cd html; make pull; make install-hugo; make deploy"'
+	ssh uber 'zsh -lc "cd html; make pull; make install-hugo; make reset; mkdir -p assets/css/compiled"'
+	$(MAKE) sync-tailwind
+	ssh uber 'zsh -lc "cd html; make build"'
