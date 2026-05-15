@@ -6,18 +6,18 @@ serve:
 	firefox http://localhost:1313 >/dev/null 2>&1 &
 	hugo server -D -p 1313 --navigateToChanged --baseURL="http://localhost"
 
-tw: themes/congo/node_modules  # tailwind
-	./themes/congo/node_modules/tailwindcss/lib/cli.js -c ./themes/congo/tailwind.config.js -i ./themes/congo/assets/css/main.css -o ./assets/css/compiled/main.css --minify
-tww: themes/congo/node_modules # tailwind watch
-	./themes/congo/node_modules/tailwindcss/lib/cli.js -c ./themes/congo/tailwind.config.js -i ./themes/congo/assets/css/main.css -o ./assets/css/compiled/main.css --jit --watch >/dev/null
+tw: themes/blowfish/node_modules  # tailwind
+	./themes/blowfish/node_modules/.bin/tailwindcss -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --minify
+tww: themes/blowfish/node_modules # tailwind watch
+	./themes/blowfish/node_modules/.bin/tailwindcss -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit --watch >/dev/null
 
-themes/congo/node_modules:
+themes/blowfish/node_modules:
 	git submodule init
 	git submodule update
-	npm install --prefix ./themes/congo
+	npm install --prefix ./themes/blowfish
 
-assets/css/compiled/main.css: themes/congo/node_modules
-	./themes/congo/node_modules/tailwindcss/lib/cli.js -c ./themes/congo/tailwind.config.js -i ./themes/congo/assets/css/main.css -o ./assets/css/compiled/main.css ---minify
+assets/css/compiled/main.css: themes/blowfish/node_modules
+	~/.local/bin/tailwindcss -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css ---minify
 
 build: assets/css/compiled/main.css
 	HUGO_ENV=production hugo --gc --minify
@@ -25,36 +25,12 @@ build: assets/css/compiled/main.css
 test: assets/css/compiled/main.css
 	HUGO_ENV=production hugo --gc --minify --templateMetrics --templateMetricsHints --printPathWarnings
 
-_:
-	mkdir -p _
-	ln -s ../content/review _/review
-	ln -s ../content/guide _/guide
-	ln -s ../content/project _/project
-	ln -s ../content/essay _/essay
-	ln -s ../content/newsletter _/newsletter
-	ln -s ../layouts _/…layout
-	ln -s ../layouts/shortcodes/glossary _/glossary
-
-install-hooks: .git/hooks/pre-commit .git/hooks/pre-push
-
-.git/hooks/pre-commit: git-hooks/pre-commit .git/hooks
-	cp $< $@
-
-.git/hooks/pre-push: git-hooks/pre-push .git/hooks
-	cp $< $@
-
-descriptions:
-	short-descriptions .
-
-titles:
-	short-titles .
-
 clear-cache:
 	rm -r public
 	git restore public/_redirects
 
 write-hugo-version:
-	hugo version | grep -Po "\d+\.\d+\.\d+" >.hugo-version
+	hugo version | grep -Eo "\d+\.\d+\.\d+" >.hugo-version
 
 install-hugo:
 	required_version="$$(cat .hugo-version)"; \
@@ -80,9 +56,7 @@ reset:
 	git reset --hard
 	git clean -df
 
-deploy: reset tw build copy
+deploy: reset build copy
 
 publish: # run via a custom git publish
-	ssh u 'zsh -lc "cd git/web; make pull; make install-hugo"'
-	$(MAKE) sync-generated-md
-	ssh u 'zsh -lc "cd git/web; make deploy"'
+	ssh uber 'zsh -lc "cd html; make pull; make install-hugo; make deploy"'
