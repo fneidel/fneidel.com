@@ -44,14 +44,18 @@ pull:
 	git reset --hard origin/master
 	git submodule update
 
+copy:
+	rm -rf ~/html/*
+	cp -r ~/git/public/* ~/html
+
 sync-tailwind: assets/css/compiled/main.css
-	rsync -avrp --delete assets/css/compiled/main.css uber:html/assets/css/compiled/main.css
+	rsync -avrp --delete assets/css/compiled/main.css uber:git/assets/css/compiled/main.css
 
 reset:
 	git reset --hard
 	git clean -df
 
 publish: # run via a custom git publish
-	ssh uber 'zsh -lc "cd html; make pull; make install-hugo; make reset; mkdir -p assets/css/compiled"'
+	ssh uber 'zsh -lc "cd git; make pull; make install-hugo; make reset; mkdir -p assets/css/compiled"'
 	$(MAKE) sync-tailwind
-	ssh uber 'zsh -lc "cd html; make build"'
+	ssh uber 'zsh -lc "cd git; make build; make copy"'
