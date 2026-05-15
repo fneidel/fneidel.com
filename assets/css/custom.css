@@ -1,0 +1,9 @@
+.main-menu .logo {
+  max-height: 3rem !important;
+  max-width: 3rem !important;
+}
+
+.main-menu .logo svg {
+  max-height: 3rem;
+  max-width: 3rem;
+}
