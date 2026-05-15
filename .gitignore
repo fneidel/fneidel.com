@@ -1,0 +1,10 @@
+tmp
+.hugo_build.lock
+_/
+.web-tabspaces-session.el
+
+# generated
+resources/_gen
+assets/css/compiled
+
+public/

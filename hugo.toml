@@ -1,0 +1,15 @@
+baseURL = 'https://fneidel.com/'
+locale = 'en-us'
+title = 'fneidel'
+description = "Francis Website"
+name = "jneidel"
+copyright = "[&copy; Francis Neidel. All rights reserved.](copyright)"
+
+enableGitInfo = true # required for lastmod to get date from git
+
+timeout = "5m"
+
+ignoreFiles = [
+  '.*\.org$', # ox-hugo org sources
+  "LICENCE", "COPYRIGHT"
+]
